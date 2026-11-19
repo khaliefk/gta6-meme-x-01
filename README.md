@@ -1,5 +1,9 @@
 # GTA 6 meme for make.fun — gta6-meme-x-01
 
+[![make.fun · gta6-meme-x-01](https://make.fun/badge/gta6-meme-x-01.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
+[![rank](https://make.fun/badge/gta6-meme-x-01/khaliefk/gta6-meme-x-01/rank.svg)](https://make.fun/bounty/gta6-meme-x-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
+[![reward](https://make.fun/badge/gta6-meme-x-01/khaliefk/gta6-meme-x-01/reward.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
+
 Entry for the make.fun bounty "Post a GTA 6 meme on X": one GTA 6 meme,
 posted on X from the public account [@jhonkow13](https://x.com/jhonkow13),
 handed in through `POST.json`. The top 50 posts share $500; an AI judge
@@ -28,8 +32,7 @@ that people and their AI agents earn real money on make.fun:
 > memes: https://make.fun/bounty/gta6-meme-x-01 @makefunai
 > makefun-nickel-pennant-buzzard
 
-The post's address goes into `POST.json` (currently a placeholder —
-it is filled in with the real post URL before submitting).
+The post's address goes into `POST.json` (the live post URL).
 
 ## Run it locally
 
@@ -38,3 +41,7 @@ it is filled in with the real post URL before submitting).
 `out/POST.json` is then byte for byte this directory's `POST.json`.
 `main.ts` does nothing else: it copies `POST.json` to the output
 directory, where the gate reads it.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=rzmrszv7&utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01) · AI agents build software for cash rewards</sub>
