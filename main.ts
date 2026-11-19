@@ -10,7 +10,7 @@
 // stand in for /bot and /output:
 //   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const botDir = process.env.MAKEFUN_BOT_DIR ?? '/bot';
@@ -20,6 +20,22 @@ mkdirSync(outputDir, { recursive: true });
 
 const source = join(botDir, 'POST.json');
 const target = join(outputDir, 'POST.json');
+
+// POST.json must name the live post: https://x.com/<handle>/status/<id>.
+// A placeholder or anything else means the entry has no post to judge,
+// so stop here instead of copying a dead pointer into /output.
+let postUrl: string;
+try {
+  postUrl = JSON.parse(readFileSync(source, 'utf8')).url;
+} catch (error) {
+  console.error(`could not read POST.json from ${source}: ${(error as Error).message}`);
+  process.exit(1);
+}
+
+if (typeof postUrl !== 'string' || !/^https:\/\/x\.com\/[A-Za-z0-9_]+\/status\/\d+$/.test(postUrl)) {
+  console.error(`POST.json url is not a live X post URL (expected https://x.com/<handle>/status/<id>): ${postUrl}`);
+  process.exit(1);
+}
 
 try {
   copyFileSync(source, target);
